@@ -1,38 +1,194 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  font-family: 'Varela Round', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
+}
+
+body{
+  background-color: rgb(2, 2, 2);
+}
+
+header{
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: rgb(0, 0, 0);
+  min-height: fit-content;
+  min-width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+h1{
+  font-size: 45px;
+  text-shadow: 0 0 5px rgb(176, 190, 176);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+form {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form input,
+form button {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  background: white;
+}
+form button {
+  color: rgb(0, 0, 0);
+  background: #f7fffe;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+form button:hover {
+  background: rgb(30, 183, 104);
+  color: rgb(255, 255, 255);
+  transition: 0.6s;
+}
+.todo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-list {
+  min-width: 30%;
+  list-style: none;
+}
+
+.todo {
+  margin: 0.5rem;
+  background: white;
+  font-size: 1.5rem;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 1s ease;
+}
+.filter-todo {
+  padding: 1rem;
+}
+.todo li {
+  flex: 1;
+}
+
+.trash-btn{
+  background: rgb(230, 213, 213);
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.6s;
+}
+
+.trash-btn:hover{
+  background-color: red;
+  color: white;
+  transition: 0.6s;
+}
+.complete-btn {
+  background: rgb(0, 255, 136);
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.6s;
+}
+.complete-btn:hover{
+  background-color: rgb(72, 177, 1);
+  color: rgb(0, 255, 34);
+  transition: 0.6s;
+}
+
+.todo-item {
+  padding: 0rem 0.5rem;
+}
+
+.fa-trash,
+.fa-check {
+  pointer-events: none;
+}
+
+.fall {
+  transform: translateY(10rem) rotateZ(20deg);
+  opacity: 0;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+/*CUSTOM SELECTOR */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background-image: none;
+}
+
+/* Custom Select */
+.select {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+select {
+  color: #ff6f47;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  width: 12rem;
+}
+/* Arrow */
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  background: #ff6f47;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+/* stars */
+
+/* body{
+  background-color: #000;
+} */
+
+.main{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 1px;
+  width: 1px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 8vw 1vh 1px 1px #fff,23vw 17vh 0px 3px #fff,-26vw 35vh 0px 1px #fff,-48vw 3vh 0px 2px #fff,-36vw 0vh 1px 0px #fff,24vw -10vh 1px 0px #fff,3vw -10vh 1px 2px #fff,-26vw -35vh 1px 0px #fff,19vw 18vh 2px 0px #fff,-50vw -7vh 1px 2px #fff,42vw 45vh 3px 3px #fff,-32vw -10vh 2px 0px #fff,-34vw 3vh 1px 1px #fff,-29vw -16vh 1px 0px #fff,-1vw 28vh 0px 0px #fff,-21vw -10vh 2px 0px #fff,-50vw 42vh 3px 2px #fff,9vw 26vh 0px 3px #fff,-19vw 25vh 3px 3px #fff,-47vw 43vh 0px 0px #fff,-31vw 48vh 0px 1px #fff,-12vw -8vh 3px 2px #fff,48vw -14vh 3px 3px #fff,14vw 9vh 1px 1px #fff,17vw -24vh 2px 3px #fff,-34vw -9vh 0px 0px #fff,-12vw 17vh 0px 2px #fff,25vw -40vh 3px 2px #fff,7vw -23vh 2px 3px #fff,-41vw -18vh 1px 3px #fff,17vw -35vh 2px 1px #fff,45vw 36vh 3px 3px #fff,-19vw 1vh 3px 2px #fff,7vw 25vh 2px 1px #fff,-18vw -16vh 2px 1px #fff,-41vw 21vh 3px 2px #fff,-30vw 10vh 3px 2px #fff,43vw -20vh 3px 1px #fff,-19vw 50vh 1px 3px #fff,30vw -11vh 2px 1px #fff,40vw 41vh 3px 3px #fff,27vw -10vh 1px 2px #fff,-8vw -8vh 2px 0px #fff,32vw -47vh 0px 1px #fff,-33vw 8vh 1px 2px #fff,-41vw -22vh 2px 2px #fff,-3vw -13vh 3px 1px #fff,-7vw -17vh 1px 2px #fff,30vw -42vh 2px 2px #fff,16vw 33vh 1px 3px #fff,-19vw 40vh 1px 3px #fff,-44vw 30vh 1px 3px #fff,-35vw 10vh 0px 1px #fff,-50vw 45vh 2px 2px #fff,1vw 22vh 0px 1px #fff,34vw -49vh 2px 1px #fff,39vw 5vh 3px 0px #fff,-21vw 33vh 3px 3px #fff,-26vw -47vh 2px 3px #fff,-22vw -21vh 0px 1px #fff,50vw 24vh 0px 1px #fff,47vw 42vh 3px 0px #fff,48vw 25vh 2px 0px #fff,-29vw -15vh 3px 1px #fff,41vw -24vh 2px 3px #fff,-17vw -4vh 3px 3px #fff,9vw -6vh 0px 1px #fff,36vw 39vh 1px 3px #fff,-25vw 24vh 0px 2px #fff,28vw -6vh 3px 3px #fff,24vw -41vh 3px 3px #fff,-8vw 46vh 0px 2px #fff,-46vw 22vh 3px 1px #fff,-29vw 27vh 2px 0px #fff,-39vw -35vh 0px 0px #fff,-11vw 37vh 3px 1px #fff,34vw 2vh 1px 1px #fff,44vw -12vh 1px 2px #fff,19vw -20vh 1px 3px #fff,-29vw -29vh 2px 3px #fff,-18vw -44vh 0px 1px #fff,49vw -13vh 1px 2px #fff,37vw -8vh 1px 2px #fff,-6vw -32vh 0px 1px #fff,-30vw -41vh 0px 2px #fff,4vw 45vh 1px 3px #fff,-3vw -37vh 3px 3px #fff,47vw -15vh 1px 0px #fff,16vw 44vh 2px 3px #fff,35vw -16vh 1px 2px #fff,40vw -36vh 2px 1px #fff,-25vw 40vh 1px 1px #fff,-19vw -28vh 2px 0px #fff,37vw -12vh 0px 3px #fff,4vw -17vh 2px 3px #fff,49vw 0vh 3px 1px #fff,-13vw -1vh 3px 0px #fff,-19vw 10vh 0px 1px #fff,-15vw 27vh 0px 0px #fff,10vw 15vh 2px 3px #fff;
+  animation: zoom 20s alternate infinite;
+  z-index: -1
+}
+
+@keyframes zoom {
+  0%{
+      transform: scale(0.8);
   }
-  to {
-    transform: rotate(360deg);
+  100%{
+      transform: scale(1.2);
   }
 }
+
